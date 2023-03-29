@@ -7,7 +7,7 @@ export type AppProps = {
 };
 
 const Cryptosummary = ({ crypto, updateOwned }: AppProps): JSX.Element => {
-    const [amount, setAmount] = useState<number>(0)
+    const [amount, setAmount] = useState<number>(NaN)
 
     useEffect(() => {
         console.log(crypto.name, amount, crypto.current_price * (amount));
@@ -16,7 +16,7 @@ const Cryptosummary = ({ crypto, updateOwned }: AppProps): JSX.Element => {
         <div>
             <span>{crypto.name + ' $' + crypto.current_price}</span>
             <input  style={{ margin: 10 }} 
-                    type='number' 
+                    type="number" 
                     value={amount} 
                     onChange={(e) => {setAmount(parseFloat(e.target.value));
                         // Set a parent state by calling a function passed in as a prop
